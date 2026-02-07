@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Aadityansha Verma</title>
+    <title>Admin Panel - Aditya Kumar Verma</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
@@ -96,6 +97,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
         <div class="card max-w-md w-full">
@@ -107,23 +109,15 @@
             <form id="login-form" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium mb-1">Email</label>
-                    <input
-                        type="email"
-                        id="login-username"
-                        class="form-input w-full rounded-md px-4 py-2 transition-colors"
-                        placeholder="Enter your email"
-                        required
-                    />
+                    <input type="email" id="login-username"
+                        class="form-input w-full rounded-md px-4 py-2 transition-colors" placeholder="Enter your email"
+                        required />
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Password</label>
-                    <input
-                        type="password"
-                        id="login-password"
+                    <input type="password" id="login-password"
                         class="form-input w-full rounded-md px-4 py-2 transition-colors"
-                        placeholder="Enter your password"
-                        required
-                    />
+                        placeholder="Enter your password" required />
                 </div>
                 <button type="submit" class="btn-primary w-full py-2 rounded-md">Login</button>
                 <div id="login-error" class="text-red-600 text-sm text-center hidden"></div>
@@ -135,10 +129,7 @@
         <header class="bg-[var(--bg-secondary)] border-b border-[var(--border-color)] p-4 shadow-sm">
             <div class="container mx-auto max-w-6xl flex items-center justify-between">
                 <h1 class="text-2xl font-bold text-[var(--text-heading)]">Admin Dashboard</h1>
-                <button
-                    id="logout-btn"
-                    class="btn-secondary px-4 py-2 rounded-md flex items-center gap-2"
-                >
+                <button id="logout-btn" class="btn-secondary px-4 py-2 rounded-md flex items-center gap-2">
                     <i class="bx bx-log-out"></i> Logout
                 </button>
             </div>
@@ -163,103 +154,70 @@
                             </h2>
                             <form id="project-form" class="space-y-3">
                                 <input type="hidden" id="project-id" />
-                                
+
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Project Title</label>
-                                    <input
-                                        type="text"
-                                        id="project-title"
+                                    <input type="text" id="project-title"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="e.g., Flash - HTTP CLI"
-                                        required
-                                    />
+                                        placeholder="e.g., Flash - HTTP CLI" required />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Description</label>
-                                    <textarea
-                                        id="project-description"
-                                        class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        rows="3"
-                                        placeholder="Project description"
-                                        required
-                                    ></textarea>
+                                    <textarea id="project-description"
+                                        class="form-input w-full rounded-md px-3 py-2 text-sm" rows="3"
+                                        placeholder="Project description" required></textarea>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Icon (Boxicon class)</label>
-                                    <input
-                                        type="text"
-                                        id="project-icon"
+                                    <input type="text" id="project-icon"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="e.g., bx-terminal"
-                                    />
+                                        placeholder="e.g., bx-terminal" />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Tech Tags (comma separated)</label>
-                                    <input
-                                        type="text"
-                                        id="project-tags"
+                                    <input type="text" id="project-tags"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="C, libcurl, Networking"
-                                    />
+                                        placeholder="C, libcurl, Networking" />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Demo Link</label>
-                                    <input
-                                        type="url"
-                                        id="project-demo-link"
+                                    <input type="url" id="project-demo-link"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="https://..."
-                                    />
+                                        placeholder="https://..." />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">GitHub Link</label>
-                                    <input
-                                        type="url"
-                                        id="project-github-link"
+                                    <input type="url" id="project-github-link"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="https://github.com/..."
-                                    />
+                                        placeholder="https://github.com/..." />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Download Link</label>
-                                    <input
-                                        type="url"
-                                        id="project-download-link"
+                                    <input type="url" id="project-download-link"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="https://... (optional)"
-                                    />
+                                        placeholder="https://... (optional)" />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Position (Order)</label>
-                                    <input
-                                        type="number"
-                                        id="project-position"
+                                    <input type="number" id="project-position"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="1, 2, 3, etc."
-                                        min="1"
-                                    />
+                                        placeholder="1, 2, 3, etc." min="1" />
                                 </div>
 
                                 <div class="flex gap-2">
-                                    <button
-                                        type="submit"
-                                        id="project-submit-btn"
-                                        class="btn-primary flex-1 py-2 rounded-md text-sm"
-                                    >
+                                    <button type="submit" id="project-submit-btn"
+                                        class="btn-primary flex-1 py-2 rounded-md text-sm">
                                         Add Project
                                     </button>
-                                    <button
-                                        type="button"
-                                        id="project-reset-btn"
-                                        class="btn-secondary flex-1 py-2 rounded-md text-sm"
-                                    >
+                                    <button type="button" id="project-reset-btn"
+                                        class="btn-secondary flex-1 py-2 rounded-md text-sm">
                                         Clear
                                     </button>
                                 </div>
@@ -287,73 +245,48 @@
                             </h2>
                             <form id="writing-form" class="space-y-3">
                                 <input type="hidden" id="writing-id" />
-                                
+
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Title</label>
-                                    <input
-                                        type="text"
-                                        id="writing-title"
+                                    <input type="text" id="writing-title"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="Article title"
-                                        required
-                                    />
+                                        placeholder="Article title" required />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Description</label>
-                                    <textarea
-                                        id="writing-description"
-                                        class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        rows="3"
-                                        placeholder="Brief description"
-                                        required
-                                    ></textarea>
+                                    <textarea id="writing-description"
+                                        class="form-input w-full rounded-md px-3 py-2 text-sm" rows="3"
+                                        placeholder="Brief description" required></textarea>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Publication Link</label>
-                                    <input
-                                        type="url"
-                                        id="writing-link"
-                                        class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="https://..."
-                                        required
-                                    />
+                                    <input type="url" id="writing-link"
+                                        class="form-input w-full rounded-md px-3 py-2 text-sm" placeholder="https://..."
+                                        required />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Publication Date</label>
-                                    <input
-                                        type="date"
-                                        id="writing-date"
-                                        class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        required
-                                    />
+                                    <input type="date" id="writing-date"
+                                        class="form-input w-full rounded-md px-3 py-2 text-sm" required />
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium mb-1">Platform Icon (Boxicon class)</label>
-                                    <input
-                                        type="text"
-                                        id="writing-icon"
+                                    <input type="text" id="writing-icon"
                                         class="form-input w-full rounded-md px-3 py-2 text-sm"
-                                        placeholder="e.g., bxl-medium or bxl-twitter"
-                                    />
+                                        placeholder="e.g., bxl-medium or bxl-twitter" />
                                 </div>
 
                                 <div class="flex gap-2">
-                                    <button
-                                        type="submit"
-                                        id="writing-submit-btn"
-                                        class="btn-primary flex-1 py-2 rounded-md text-sm"
-                                    >
+                                    <button type="submit" id="writing-submit-btn"
+                                        class="btn-primary flex-1 py-2 rounded-md text-sm">
                                         Add Writing
                                     </button>
-                                    <button
-                                        type="button"
-                                        id="writing-reset-btn"
-                                        class="btn-secondary flex-1 py-2 rounded-md text-sm"
-                                    >
+                                    <button type="button" id="writing-reset-btn"
+                                        class="btn-secondary flex-1 py-2 rounded-md text-sm">
                                         Clear
                                     </button>
                                 </div>
@@ -450,7 +383,7 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Logging in...';
                 loginErrorDiv.classList.add('hidden');
-                
+
                 await signInWithEmailAndPassword(auth, email, password);
                 // The onAuthStateChanged will handle the UI switch
             } catch (error) {
@@ -475,10 +408,10 @@
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabName = btn.dataset.tab;
-                
+
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 btn.classList.add('active');
                 document.getElementById(`${tabName}-tab`).classList.add('active');
             });
@@ -494,7 +427,7 @@
                 const projectsCollection = collection(db, 'projects');
                 const q = query(projectsCollection, orderBy('position', 'asc'));
                 const querySnapshot = await getDocs(q);
-                
+
                 const projects = [];
                 querySnapshot.forEach(doc => {
                     projects.push({ id: doc.id, ...doc.data() });
@@ -563,7 +496,7 @@
                 document.getElementById('project-id').value = '';
                 document.getElementById('project-submit-btn').textContent = 'Add Project';
                 document.getElementById('form-title').textContent = 'Add New Project';
-                
+
                 setTimeout(() => {
                     loadProjects();
                     status.innerHTML = '';
@@ -586,7 +519,7 @@
                 const writingsCollection = collection(db, 'writings');
                 const q = query(writingsCollection, orderBy('date', 'desc'));
                 const querySnapshot = await getDocs(q);
-                
+
                 const writings = [];
                 querySnapshot.forEach(doc => {
                     writings.push({ id: doc.id, ...doc.data() });
@@ -647,7 +580,7 @@
                 document.getElementById('writing-id').value = '';
                 document.getElementById('writing-submit-btn').textContent = 'Add Writing';
                 document.getElementById('writing-form-title').textContent = 'Add New Writing';
-                
+
                 setTimeout(() => {
                     loadWritings();
                     status.innerHTML = '';
@@ -670,7 +603,7 @@
                 // We fetch all for simplicity, or we could fetch single doc
                 const projectDoc = await getDocs(query(collection(db, 'projects')));
                 const project = projectDoc.docs.find(doc => doc.id === id)?.data();
-                
+
                 if (project) {
                     document.getElementById('project-id').value = id;
                     document.getElementById('project-title').value = project.title;
@@ -681,10 +614,10 @@
                     document.getElementById('project-github-link').value = project.githubLink || '';
                     document.getElementById('project-download-link').value = project.downloadLink || '';
                     document.getElementById('project-position').value = project.position;
-                    
+
                     document.getElementById('project-submit-btn').textContent = 'Update Project';
                     document.getElementById('form-title').textContent = 'Edit Project';
-                    
+
                     document.querySelector('#projects-tab .card').scrollIntoView({ behavior: 'smooth' });
                 }
             } catch (error) {
@@ -708,7 +641,7 @@
             try {
                 const writingDoc = await getDocs(query(collection(db, 'writings')));
                 const writing = writingDoc.docs.find(doc => doc.id === id)?.data();
-                
+
                 if (writing) {
                     document.getElementById('writing-id').value = id;
                     document.getElementById('writing-title').value = writing.title;
@@ -716,10 +649,10 @@
                     document.getElementById('writing-link').value = writing.link;
                     document.getElementById('writing-date').value = writing.date;
                     document.getElementById('writing-icon').value = writing.icon;
-                    
+
                     document.getElementById('writing-submit-btn').textContent = 'Update Writing';
                     document.getElementById('writing-form-title').textContent = 'Edit Writing';
-                    
+
                     document.querySelector('#writings-tab .card').scrollIntoView({ behavior: 'smooth' });
                 }
             } catch (error) {
@@ -757,4 +690,5 @@
         console.log("Admin Panel Loaded");
     </script>
 </body>
+
 </html>
