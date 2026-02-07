@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aditya Kumar Verma | Systems Programmer & Backend Developer</title>
+    <meta name="description"
+        content="Hi, I'm Aditya Kumar Verma! A Systems Programmer & Low level coder who is still digging to find out on what ot settle on...check out more about me on my page ">
+    <meta name="keywords" content="Aditya Kumar Verma, C Programmer, Linux Kernel, Backend Developer, Portfolio">
+    <meta name="author" content="Aadityansha">
+    <meta name="google-site-verification" content="4pAV5sb37L7j3-MzhgkRuwtt7_B7AEJZKIG20WOgfr0" />
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+
+    <link rel="canonical" href="https://aadityansha06.github.io/">
+
+    <link rel="icon" type="image/x-icon" href="pic/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="pic/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="pic/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="pic/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:title" content="Aadityansha Verma | Systems Programmer">
+    <meta property="og:description"
+        content=" Systems Programmer,Low level, Computer Architecture still digging to find out on what ot settle on...check out more about me on my portfolio web page">
+    <meta property="og:image" content="https://aadityansha06.github.io/pic/profile_v2.png">
+    <meta property="og:url" content="https://aadityansha06.github.io/">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Aditya Kumar Verma Portfolio",
+        "url": "https://aadityansha06.github.io/",
+        "description": "Aditya Kumar Verma - Systems Programmer,low level coder ",
+        "author": {
+          "@type": "Person",
+          "name": "Aditya Kumar Verma"
+        },
+        "sameAs": [
+          "https://github.com/skvinderr",
+          "https://www.linkedin.com/in/adityakv/",
+          "https://x.com/AdityaOfc06",
+          "https://medium.com/@vermaadityansh"
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'rose') {
+                    document.documentElement.classList.add('theme-rose');
+                } else {
+                    document.documentElement.classList.remove('theme-rose');
+                }
+            } catch (e) {
+                console.warn('Could not set theme from localStorage', e);
+            }
+        })();
+    </script>
+
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            /* Warm/Paper Theme - NO WHITE */
+            --bg-primary: #fff1cb;
+            --bg-secondary: #faedcd;
+            --bg-card: #fdf6e3;
+            --bg-header: rgba(250, 237, 205, 0.9);
+
+            /* Typography */
+            --text-heading: #2c241b;
+            --text-body: #4a4036;
+            --text-muted: #786b59;
+
+            /* Accents */
+            --accent-color: #e84a58;
+            /* Coral Red */
+            --accent-hover: #d13846;
+            --accent-subtle: rgba(232, 74, 88, 0.08);
+            --border-color: #e6dbb8;
+        }
+
+        /* --- BASE STYLES --- */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-heading);
+        }
+
+        /* --- COMPONENTS --- */
+
+        /* Nav */
+        header {
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(232, 74, 88, 0.05);
+        }
+
+        /* Tech Tags - Minimal Outline Style */
+        .tech-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-body);
+            margin: 0.25rem 0.25rem 0.25rem 0;
+            transition: all 0.2s;
+        }
+
+        .tech-tag:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background-color: var(--bg-card);
+        }
+
+        /* Sticky Note */
+        .sticky-note {
+            background: linear-gradient(135deg, #fff8dc 0%, #f5e6a3 100%);
+            padding: 2rem;
+            transform: rotate(-1deg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .sticky-tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            width: 100px;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Handwriting */
+        .font-hand {
+            font-family: "Patrick Hand", cursive;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.6s ease-out,
+                transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--accent-color);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Form Input overrides */
+        input,
+        textarea {
+            background-color: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent-color) !important;
+            background-color: #fff !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4c5a0;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        /* Loading Screen */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.6s ease-out;
+        }
+
+        #loading.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div id="loading">
+        <dotlottie-wc src="https://lottie.host/1c1777ab-8c78-4644-b77c-04dfd06326fa/zlYPpE5bAG.lottie"
+            style="width: 500px; height: 500px" speed="1" autoplay loop>
+        </dotlottie-wc>
+    </div>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-header)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <img src="pic/profile_v2.png" alt="Logo"
+                        class="w-8 h-8 rounded-full border border-[var(--border-color)] group-hover:border-[var(--accent-color)] transition-colors" />
+                    <span class="font-bold text-lg tracking-tight">Aditya Kumar Verma</span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about"
+                        class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">About</a>
+                    <a href="#projects"
+                        class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Projects</a>
+                    <a href="#skills"
+                        class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Skills</a>
+                    <a href="#writings"
+                        class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Writings</a>
+                    <a href="#contact"
+                        class="px-4 py-2 text-sm font-medium bg-[var(--accent-color)] text-white rounded-md hover:bg-[var(--accent-hover)] transition-all transform hover:scale-105 shadow-sm">Contact</a>
+                </nav>
+
+                <button class="md:hidden text-2xl text-[var(--text-heading)]" aria-label="Menu">
+                    <i class="bx bx-menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section id="hero" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+            <div class="container mx-auto px-4 text-center z-10 fade-up">
+                <div class="mb-8 relative inline-block group">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-[var(--accent-color)] to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <img src="pic/profile_v2.png" alt="Aditya Kumar Verma"
+                        class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[var(--bg-primary)] object-cover shadow-2xl transform transition duration-500 group-hover:scale-105">
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+                    Aditya Kumar Verma
+                </h1>
+
+                <p class="text-xl md:text-2xl text-[var(--accent-color)] font-medium mb-6 font-hand">
+                    <span id="typewriter"></span><span class="typewriter-cursor"></span>
+                </p>
+
+                <p class="max-w-xl mx-auto text-[var(--text-muted)] text-lg mb-8 leading-relaxed">
+                    An 20-year-old Full Stack Developer & Systems Engineer. Passionate about
+                    <strong class="text-[var(--text-heading)]">building intelligent solutions with AI, Blockchain, and
+                        Cloud Architecture</strong><br />Currently architecting
+                    <em class="text-[var(--text-body)]">scalable systems & exploring Low-Level Code</em>.
+                </p>
+
+                <div class="flex justify-center gap-6">
+                    <a href="https://github.com/skvinderr" target="_blank"
+                        class="text-2xl text-[var(--text-muted)] hover:text-[var(--accent-color)] hover:-translate-y-1 transition-all"><i
+                            class="bx bxl-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adityakv/" target="_blank"
+                        class="text-2xl text-[var(--text-muted)] hover:text-[var(--accent-color)] hover:-translate-y-1 transition-all"><i
+                            class="bx bxl-linkedin"></i></a>
+                    <a href="https://x.com/AdityaOfc06" target="_blank"
+                        class="text-2xl text-[var(--text-muted)] hover:text-[var(--accent-color)] hover:-translate-y-1 transition-all"><i
+                            class="bx bxl-twitter"></i></a>
+                    <a href="https://medium.com/@skvinderr" target="_blank"
+                        class="text-2xl text-[var(--text-muted)] hover:text-[var(--accent-color)] hover:-translate-y-1 transition-all"><i
+                            class="bx bxl-medium"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-10 fade-up">
+                        <h2 class="text-3xl font-bold mb-2">About Me</h2>
+                        <span class="font-hand text-[var(--accent-color)] text-lg">My journey and background</span>
+                    </div>
+
+                    <div class="prose prose-lg mx-auto text-center text-[var(--text-body)] mb-12 fade-up">
+                        <p>
+                            My coding journey began in 9th grade, driven by a fascination with how systems work under
+                            the hood. From optimizing low-level backend architecture to building modern, AI-powered web
+                            applications and decentralized platforms, I thrive on solving complex problems. I'm
+                            currently expanding my expertise in Cloud Computing (AWS, Oracle) and Blockchain, aiming to
+                            architect resilient solutions that make a real-world impact.
+                        </p>
+                        <div class="mt-4 flex items-center justify-center gap-2 text-sm text-[var(--text-muted)]">
+                            <i class="bx bxs-map"></i> Uttar Pradesh, India
+                        </div>
+                    </div>
+
+                    <div class="sticky-note fade-up">
+                        <div class="sticky-tape"></div>
+                        <p class="font-hand text-xl text-gray-800 leading-relaxed text-center">
+                            "I believe writing code should be fun. I'd
+                            rather be genuine than use corporate buzzwords.
+                            My projects speak for themselves."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Featured Projects
+                    </h2>
+                    <p class="text-[var(--text-muted)]">
+                        Crafting intelligent web solutions with AI, Blockchain, and scalable systems.
+                    </p>
+                </div>
+
+                <div id="projects-container"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="col-span-2 text-center text-[var(--text-muted)]">
+                        Loading projects from database...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 border-y border-[var(--border-color)]">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Technical Arsenal
+                    </h2>
+                    <p class="text-[var(--text-muted)] font-hand">
+                        The tools I use.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="fade-up">
+                        <h3 class="font-bold text-xl mb-6 text-[var(--text-heading)]">
+                            Frontend & Design
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React.js / Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">HTML5 / CSS3</span>
+                            <span class="tech-tag">Figma</span>
+                        </div>
+                    </div>
+
+                    <div class="fade-up" style="transition-delay: 100ms">
+                        <h3 class="font-bold text-xl mb-6 text-[var(--text-heading)]">
+                            Backend & Cloud
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Node.js / Express</span>
+                            <span class="tech-tag">MongoDB / SQL</span>
+                            <span class="tech-tag">AWS / Oracle Cloud</span>
+                            <span class="tech-tag">Go (Learning)</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="fade-up" style="transition-delay: 200ms">
+                        <h3 class="font-bold text-xl mb-6 text-[var(--text-heading)]">
+                            Specialized & Tools
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Python / AI (Gemini)</span>
+                            <span class="tech-tag">Blockchain / Web3</span>
+                            <span class="tech-tag">C / C++ (Systems)</span>
+                            <span class="tech-tag">Linux / Git</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="writings" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12 fade-up">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Writings & Thoughts
+                    </h2>
+                    <p class="text-[var(--text-muted)]">
+                        Recent explorations in Kernel space and beyond.
+                    </p>
+                </div>
+
+                <div id="writings-container" class="max-w-3xl mx-auto space-y-6 fade-up">
+                    <div class="text-center text-[var(--text-muted)]">
+                        Loading writings...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto px-4">
+                <div
+                    class="max-w-xl mx-auto bg-[var(--bg-primary)] p-8 rounded-xl border border-[var(--border-color)] shadow-sm fade-up">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold mb-2">
+                            Get In Touch
+                        </h2>
+                        <p class="text-sm text-[var(--text-muted)]">
+                            Have a complex backend problem, a system to
+                            architect, or just want to connect?
+                        </p>
+                    </div>
+
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Name</label>
+                            <input type="text" name="name" required
+                                class="w-full rounded-md px-4 py-2 focus:outline-none transition-colors" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full rounded-md px-4 py-2 focus:outline-none transition-colors" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Message</label>
+                            <textarea name="Feedback" required rows="4"
+                                class="w-full rounded-md px-4 py-2 focus:outline-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" id="submit-button"
+                            class="w-full bg-[var(--accent-color)] text-white font-bold py-3 rounded-md hover:bg-[var(--accent-hover)] transition-colors">
+                            Send Message
+                        </button>
+                        <div id="form-status" class="text-center text-sm mt-3 h-5"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[var(--bg-header)] py-8 border-t border-[var(--border-color)]">
+        <div class="container mx-auto text-center px-4">
+            <p
+                class="text-[var(--text-muted)] text-sm font-hand mb-2 hover:text-[var(--accent-hover)] transition-colors cursor-pointer">
+
+                <br>
+                Crafted with an object made of atoms and molecules, with my pessimistic thought and unwillingness for
+                the awful creature on this planet who causing global warming
+            </p>
+            <p class="text-xs text-[var(--text-muted)] opacity-70">
+                © 2026 Aditya Kumar Verma. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script type="module">
+        // --- 1. FIREBASE IMPORTS (MUST BE AT THE TOP) ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+        // --- 2. FIREBASE CONFIGURATION ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyDWAPWRe7ph3q1SI8NDCA5i6B74vW2tLOY",
+            authDomain: "protfolio-22583.firebaseapp.com",
+            projectId: "protfolio-22583",
+            storageBucket: "protfolio-22583.firebasestorage.app",
+            messagingSenderId: "732637607219",
+            appId: "1:732637607219:web:f64cd2a7c671a7d2fcba46",
+            measurementId: "G-JPKWYX7G0D"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // --- 3. DYNAMIC CONTENT LOADING (PROJECTS & WRITINGS) ---
+
+        async function loadProjects() {
+            const projectsContainer = document.getElementById('projects-container');
+            if (!projectsContainer) return;
+
+            // Static Projects Data
+            const projects = [
+                {
+                    title: "AnonWhistle",
+                    description: "Blockchain-powered platform enabling anonymous reporting of corruption and misconduct. Features AI analysis, secure evidence verification, and complete whistleblower protection.",
+                    icon: "bx-shield-quarter",
+                    tags: ["Next.js", "Blockchain", "Gemini AI", "MongoDB", "Node.js"],
+                    demoLink: "https://anonwhistle.vercel.app/",
+                    githubLink: "https://github.com/skvinderr/AnonWhistle",
+                    downloadLink: null,
+                    position: 1
+                },
+                {
+                    title: "CuraLynx",
+                    description: "AI-powered clinical documentation assistant that transforms doctor-patient conversations into structured medical notes, recommendations, and prescriptions in real-time.",
+                    icon: "bx-pulse",
+                    tags: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Gemini API"],
+                    demoLink: "https://cura-lynx.vercel.app/",
+                    githubLink: "https://github.com/skvinderr/CuraLynx",
+                    downloadLink: null,
+                    position: 2
+                },
+                {
+                    title: "SmartAttend",
+                    description: "Comprehensive web application for college students to track attendance, manage 75% requirement, and visualize academic progress with smart analytics.",
+                    icon: "bx-calendar-check",
+                    tags: ["Node.js", "Express", "MongoDB", "Bootstrap", "Chart.js"],
+                    demoLink: "https://attend77.vercel.app/",
+                    githubLink: "https://github.com/skvinderr/SmartAttend",
+                    downloadLink: null,
+                    position: 3
+                },
+                {
+                    title: "College ERP",
+                    description: "Lightweight, open-source college ERP system with modern React frontend and modular Node/Express backend. Features role-based access, attendance tracking, and analytics.",
+                    icon: "bx-building-house",
+                    tags: ["React 19", "Vite", "TailwindCSS", "Node.js", "Sequelize"],
+                    demoLink: "https://clg-erp.vercel.app/",
+                    githubLink: "https://github.com/skvinderr/clg-erp",
+                    downloadLink: null,
+                    position: 4
+                }
+            ];
+
+            try {
+                projectsContainer.innerHTML = '';
+
+                if (projects.length === 0) {
+                    projectsContainer.innerHTML = '<p class="col-span-2 text-center text-[var(--text-muted)]">No projects found.</p>';
+                    return;
+                }
+
+                projects.forEach((project) => {
+                    const tags = project.tags;
+                    const projectHTML = `
+                        <article class="card flex flex-col justify-between fade-up">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold">${project.title}</h3>
+                                    <i class="bx ${project.icon} text-xl text-[var(--accent-color)]"></i>
+                                </div>
+                                <p class="text-[var(--text-muted)] text-sm mb-4">
+                                    ${project.description}
+                                </p>
+                                <div class="flex flex-wrap mb-6">
+                                    ${tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 text-sm font-medium pt-4 border-t border-dashed border-[var(--border-color)]">
+                                ${project.demoLink ? `<a href="${project.demoLink}" target="_blank" class="hover:text-[var(--accent-color)] flex items-center gap-1"><i class="bx bx-play-circle"></i> Demo</a>` : ''}
+                                ${project.downloadLink ? `<a href="${project.downloadLink}" target="_blank" class="hover:text-[var(--accent-color)] flex items-center gap-1"><i class="bx bx-download"></i> Download</a>` : ''}
+                                ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="hover:text-[var(--accent-color)] flex items-center gap-1 ml-auto"><i class="bx bxl-github"></i> Code</a>` : ''}
+                            </div>
+                        </article>
+                    `;
+                    projectsContainer.innerHTML += projectHTML;
+                });
+
+                // Re-initialize fade animation for new elements
+                if (window.observer) {
+                    document.querySelectorAll('.fade-up').forEach((el) => {
+                        if (!el.classList.contains('visible')) {
+                            window.observer.observe(el);
+                        }
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                projectsContainer.innerHTML = `<p class="col-span-2 text-center text-red-500">Could not load projects. Check console for details.</p>`;
+            }
+        }
+
+        async function loadWritings() {
+            const writingsContainer = document.getElementById('writings-container');
+            if (!writingsContainer) return;
+
+            // Static Writings Data
+            const writings = [
+                {
+                    title: "Explaining Tech to Myself: A Simple Guide to Blockchain, DevOps, and More",
+                    link: "https://medium.com/@skvinderr/explaining-tech-to-myself-a-simple-guide-to-blockchain-devops-and-more-5c9428da4d91?source=user_profile_page---------0-------------7b89f001523b----------------------",
+                    date: "Recent"
+                }
+            ];
+
+            try {
+                writingsContainer.innerHTML = '';
+
+                if (writings.length === 0) {
+                    writingsContainer.innerHTML = '<p class="text-center text-[var(--text-muted)]">No writings found.</p>';
+                    return;
+                }
+
+                writings.forEach((writing) => {
+                    const writingHTML = `
+                        <div class="fade-up">
+                            <a href="${writing.link}" target="_blank" class="text-lg font-medium text-[var(--accent-color)] hover:underline block mb-1">
+                                ${writing.title}
+                            </a>
+                            <div class="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+                                <i class="bx bxl-medium"></i>
+                                <span>Medium</span>
+                                <span>•</span>
+                                <span>${writing.date}</span>
+                            </div>
+                        </div>
+                    `;
+                    writingsContainer.innerHTML += writingHTML;
+                });
+
+                // Re-initialize fade animation
+                if (window.observer) {
+                    document.querySelectorAll('.fade-up').forEach((el) => {
+                        if (!el.classList.contains('visible')) {
+                            window.observer.observe(el);
+                        }
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error loading writings:', error);
+            }
+        }
+
+        // --- 4. UI INTERACTIONS (Typewriter, Scroll, Contact) ---
+
+        // Typewriter Effect
+        const words = ["Cloud Engineer", "Full Stack Developer", "AI Engineer", "Student"];
+        let i = 0;
+        let timer;
+
+        function typeWriter() {
+            const heading = document.getElementById("typewriter");
+            if (!heading) return;
+
+            const word = words[i];
+            const current = heading.textContent;
+
+            if (!heading.classList.contains("deleting")) {
+                if (current.length < word.length) {
+                    heading.textContent = word.substring(0, current.length + 1);
+                    timer = setTimeout(typeWriter, 150);
+                } else {
+                    heading.classList.add("deleting");
+                    timer = setTimeout(typeWriter, 2000);
+                }
+            } else {
+                if (current.length > 0) {
+                    heading.textContent = word.substring(0, current.length - 1);
+                    timer = setTimeout(typeWriter, 100);
+                } else {
+                    heading.classList.remove("deleting");
+                    i = (i + 1) % words.length;
+                    timer = setTimeout(typeWriter, 500);
+                }
+            }
+        }
+
+        // Fade Up Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+        };
+
+        // Attach observer to window so loadProjects can access it
+        window.observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    window.observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Contact Form Logic
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+            const submitButton = document.getElementById("submit-button");
+            const formStatus = document.getElementById("form-status");
+
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                submitButton.innerText = "Opening Mail Client...";
+                submitButton.disabled = true;
+
+                const formData = new FormData(event.target);
+                const name = formData.get("name");
+                const email = formData.get("email");
+                const message = formData.get("Feedback");
+
+                // Construct mailto link
+                // TODO: Replace with your actual email address
+                const myEmail = "sci.adityarjpt@gmail.com";
+                const subject = `Portfolio Contact from ${name}`;
+                const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+                const mailtoLink = `mailto:${myEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                window.location.href = mailtoLink;
+
+                formStatus.innerHTML = `<span style="color: #10b981;">Mail client opened!</span>`;
+
+                setTimeout(() => {
+                    submitButton.innerText = "Send Message";
+                    submitButton.disabled = false;
+                    formStatus.innerHTML = "";
+                    event.target.reset();
+                }, 3000);
+            });
+        }
+
+        // Loading Screen Logic - Minimum Display Time
+        const MINIMUM_LOAD_TIME = 1500; // 1.5 seconds minimum
+        let loadingStartTime = Date.now();
+        let contentLoaded = false;
+
+        function hideLoading() {
+            const loadingElement = document.getElementById('loading');
+            if (!loadingElement) return;
+
+            const elapsedTime = Date.now() - loadingStartTime;
+            const remainingTime = Math.max(0, MINIMUM_LOAD_TIME - elapsedTime);
+
+            setTimeout(() => {
+                loadingElement.classList.add('fade-out');
+                // Remove from DOM after fade out to prevent interaction blocking
+                setTimeout(() => {
+                    loadingElement.style.display = 'none';
+                }, 600);
+            }, remainingTime);
+        }
+
+        // --- 5. INITIALIZATION ---
+
+        // Start scripts when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            typeWriter();
+
+            // Observe existing fade-up elements
+            document.querySelectorAll(".fade-up").forEach((el) => window.observer.observe(el));
+
+            // Load Firebase Data
+            loadProjects();
+            loadWritings();
+        });
+
+        // Hide loading screen when window fully loads (respects minimum time)
+        window.addEventListener('load', () => {
+            contentLoaded = true;
+            hideLoading();
+        });
+
+        // Fallback: Force hide loading after 5 seconds if something gets stuck (respects minimum time)
+        setTimeout(() => {
+            hideLoading();
+        }, 5000);
+
+    </script>
+</body>
+
+</html>
