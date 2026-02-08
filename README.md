@@ -32,7 +32,7 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/aadityansha06/aadityansha06.github.io.git
+    git clone https://github.com/skvinderr/aadityansha06.github.io.git
     cd aadityansha06.github.io
     ```
 
@@ -47,7 +47,7 @@ To run this project locally:
 
 ## 📬 Contact
 
--   **Email:** adityansha06@gmail.com
+-   **Email:** sci.adityarjpt@gmail.com
 -   **LinkedIn:** [Aditya Kumar Verma](https://www.linkedin.com/in/adityakv/)
 -   **GitHub:** [skvinderr](https://github.com/skvinderr)
 -   **Twitter:** [@AdityaOfc06](https://x.com/AdityaOfc06)
