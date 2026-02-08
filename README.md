@@ -32,8 +32,8 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/skvinderr/aadityansha06.github.io.git
-    cd aadityansha06.github.io
+    git clone https://github.com/skvinderr/Adi_Portfolio.git
+    cd Adi_Portfolio
     ```
 
 2.  **Serve the files:**
