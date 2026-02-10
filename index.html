@@ -299,9 +299,24 @@
                         class="px-4 py-2 text-sm font-medium bg-[var(--accent-color)] text-white rounded-md hover:bg-[var(--accent-hover)] transition-all transform hover:scale-105 shadow-sm">Contact</a>
                 </nav>
 
-                <button class="md:hidden text-2xl text-[var(--text-heading)]" aria-label="Menu">
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-[var(--text-heading)] focus:outline-none"
+                    aria-label="Menu">
                     <i class="bx bx-menu"></i>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden md:hidden absolute top-16 left-0 right-0 bg-[var(--bg-header)] backdrop-blur-md border-b border-[var(--border-color)] p-4 flex-col space-y-4 shadow-lg transition-all duration-300">
+                <a href="#about"
+                    class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">About</a>
+                <a href="#projects"
+                    class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Projects</a>
+                <a href="#skills"
+                    class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Skills</a>
+                <a href="#writings"
+                    class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Writings</a>
+                <a href="#contact"
+                    class="block px-4 py-2 text-sm font-medium bg-[var(--accent-color)] text-white rounded-md hover:bg-[var(--accent-hover)] text-center transition-all">Contact</a>
             </div>
         </div>
     </header>
@@ -826,6 +841,39 @@
             // Load Firebase Data
             loadProjects();
             loadWritings();
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('flex');
+
+                    // Toggle icon
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    } else {
+                        icon.classList.remove('bx-menu');
+                        icon.classList.add('bx-x');
+                    }
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex');
+
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    });
+                });
+            }
         });
 
         // Hide loading screen when window fully loads (respects minimum time)
