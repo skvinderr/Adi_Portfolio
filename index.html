@@ -655,10 +655,11 @@
                     return;
                 }
 
-                projects.forEach((project) => {
+                projects.forEach((project, index) => {
                     const tags = project.tags;
+                    const isHidden = index >= 4 ? 'hidden project-hidden' : '';
                     const projectHTML = `
-                        <article class="card flex flex-col justify-between fade-up">
+                        <article class="card flex flex-col justify-between fade-up ${isHidden}">
                             <div>
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-bold">${project.title}</h3>
@@ -680,6 +681,27 @@
                     `;
                     projectsContainer.innerHTML += projectHTML;
                 });
+
+                if (projects.length > 4) {
+                    projectsContainer.innerHTML += `
+                        <div class="col-span-1 lg:col-span-2 flex justify-center mt-4 mb-2" id="see-more-container">
+                            <button id="see-more-btn" class="inline-flex items-center gap-2 px-6 py-2 text-sm font-medium text-[var(--accent-color)] border border-[var(--accent-color)] rounded-full hover:bg-[var(--accent-color)] hover:text-white transition-all shadow-sm">
+                                See More <i class="bx bx-chevron-down text-lg"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    const seeMoreBtn = document.getElementById('see-more-btn');
+                    if (seeMoreBtn) {
+                        seeMoreBtn.addEventListener('click', () => {
+                            document.querySelectorAll('.project-hidden').forEach(el => {
+                                el.classList.remove('hidden', 'project-hidden');
+                                if (window.observer) window.observer.observe(el);
+                            });
+                            document.getElementById('see-more-container').style.display = 'none';
+                        });
+                    }
+                }
 
                 // Re-initialize fade animation for new elements
                 if (window.observer) {
