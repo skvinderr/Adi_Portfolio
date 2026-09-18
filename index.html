@@ -60,11 +60,8 @@
     <script>
         (function () {
             try {
-                if (localStorage.getItem('theme') === 'rose') {
-                    document.documentElement.classList.add('theme-rose');
-                } else {
-                    document.documentElement.classList.remove('theme-rose');
-                }
+                const savedTheme = localStorage.getItem('theme') || 'paper';
+                document.documentElement.setAttribute('data-theme', savedTheme);
             } catch (e) {
                 console.warn('Could not set theme from localStorage', e);
             }
@@ -93,6 +90,49 @@
             --border-color: #e6dbb8;
         }
 
+        /* --- THEMES --- */
+        [data-theme="matcha"] {
+            --bg-primary: #eef0e5;
+            --bg-secondary: #e1e5d9;
+            --bg-card: #f5f7f2;
+            --bg-header: rgba(225, 229, 217, 0.9);
+            --text-heading: #1a261f;
+            --text-body: #35423a;
+            --text-muted: #68756d;
+            --accent-color: #4a7856;
+            --accent-hover: #3a6144;
+            --accent-subtle: rgba(74, 120, 86, 0.08);
+            --border-color: #cfd6c5;
+        }
+
+        [data-theme="slate"] {
+            --bg-primary: #eef1f6;
+            --bg-secondary: #e2e8f0;
+            --bg-card: #f5f7fa;
+            --bg-header: rgba(226, 232, 240, 0.9);
+            --text-heading: #1e293b;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-subtle: rgba(59, 130, 246, 0.08);
+            --border-color: #cbd5e1;
+        }
+
+        [data-theme="midnight"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #172033;
+            --bg-header: rgba(30, 41, 59, 0.9);
+            --text-heading: #f8fafc;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-color: #8b5cf6;
+            --accent-hover: #7c3aed;
+            --accent-subtle: rgba(139, 92, 246, 0.08);
+            --border-color: #334155;
+        }
+
         /* --- BASE STYLES --- */
         body {
             font-family: "Inter", sans-serif;
@@ -116,15 +156,18 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Cards (Spotlight Effect) */
+        /* Cards (Spotlight, Glassmorphism, 3D Tilt) */
         .card {
-            background-color: var(--bg-card);
+            background-color: color-mix(in srgb, var(--bg-card) 75%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.5rem;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease-out;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
 
         .card::before {
@@ -156,7 +199,6 @@
 
         .card:hover {
             border-color: var(--accent-color);
-            transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(232, 74, 88, 0.05);
         }
 
@@ -325,6 +367,20 @@
             style="width: 500px; height: 500px" speed="1" autoplay loop>
         </dotlottie-wc>
     </div>
+
+    <!-- Theme Picker -->
+    <div class="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-[var(--bg-card)] border border-[var(--border-color)] border-r-0 rounded-l-xl shadow-lg p-2 flex flex-col gap-3 transition-transform translate-x-[calc(100%-40px)] hover:translate-x-0 group">
+        <div class="absolute left-2 top-1/2 -translate-y-1/2 text-[var(--text-muted)] group-hover:opacity-0 transition-opacity">
+            <i class='bx bx-palette text-xl'></i>
+        </div>
+        <div class="pl-8 flex flex-col gap-2">
+            <button class="theme-btn w-6 h-6 rounded-full border border-[var(--border-color)] bg-[#fff1cb] relative shadow-sm hover:scale-110 transition-transform" data-set-theme="paper" title="Warm Paper"></button>
+            <button class="theme-btn w-6 h-6 rounded-full border border-[var(--border-color)] bg-[#eef0e5] relative shadow-sm hover:scale-110 transition-transform" data-set-theme="matcha" title="Sage Matcha"></button>
+            <button class="theme-btn w-6 h-6 rounded-full border border-[var(--border-color)] bg-[#eef1f6] relative shadow-sm hover:scale-110 transition-transform" data-set-theme="slate" title="Ocean Slate"></button>
+            <button class="theme-btn w-6 h-6 rounded-full border border-[var(--border-color)] bg-[#0f172a] relative shadow-sm hover:scale-110 transition-transform" data-set-theme="midnight" title="Midnight Onyx"></button>
+        </div>
+    </div>
+
     <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-header)]">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -1034,18 +1090,53 @@
             hideLoading();
         }, 5000);
 
-        // Spotlight Effect for Cards
+        // Spotlight & 3D Tilt Effect for Cards
         document.addEventListener('mousemove', (e) => {
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
+                
+                // Spotlight logic
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
+            
+            // 3D Tilt logic
+            const hoveredCard = e.target.closest('.card');
+            if (hoveredCard) {
+                const rect = hoveredCard.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg tilt
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                hoveredCard.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            }
         });
 
+        // Reset tilt on mouse leave
+        document.addEventListener('mouseout', (e) => {
+            const hoveredCard = e.target.closest('.card');
+            if (hoveredCard && !hoveredCard.contains(e.relatedTarget)) {
+                hoveredCard.style.transform = '';
+            }
+        });
+
+        // Theme Picker Logic
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const newTheme = btn.getAttribute('data-set-theme');
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
     </script>
 </body>
 
