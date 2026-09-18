@@ -268,6 +268,25 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* Achievements Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: scroll 20s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
 
@@ -293,6 +312,8 @@
                         class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Projects</a>
                     <a href="#skills"
                         class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Skills</a>
+                    <a href="#achievements"
+                        class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Achievements</a>
                     <a href="#writings"
                         class="text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Writings</a>
                     <a href="resume.pdf" target="_blank"
@@ -315,6 +336,8 @@
                     class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Projects</a>
                 <a href="#skills"
                     class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Skills</a>
+                <a href="#achievements"
+                    class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Achievements</a>
                 <a href="#writings"
                     class="block text-sm font-medium hover:text-[var(--accent-color)] transition-colors">Writings</a>
                 <a href="resume.pdf" target="_blank"
@@ -478,6 +501,37 @@
                             <span class="tech-tag">Linux / Git</span>
                             <span class="tech-tag">Docker</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-color)] overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 fade-up">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Hackathon Achievements
+                    </h2>
+                    <p class="text-[var(--text-muted)] font-hand">
+                        Some of my proudest moments.
+                    </p>
+                </div>
+                
+                <div class="marquee-container fade-up">
+                    <div class="marquee-content gap-6 py-4">
+                        <!-- Group 1 -->
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQHaGfr7zO8zeQ/feedshare-shrink_800/B56Z227KhuKoAc-/0/1776890456418?e=1791417600&v=beta&t=znSKOGP70d8qmTNklQhzShODL0qF2FqBbERG4uN-FKQ" alt="Hackathon 1" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQFsgPJHX6B9bw/feedshare-shrink_1280/B56ZyEA9TnIgAg-/0/1771741370524?e=1791417600&v=beta&t=eiH1ce9ApbPRghIVhefHhbPYlG4ouIWkBow_IT-8WUg" alt="Hackathon 2" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E22AQHfarDOreetDw/feedshare-image-high-res/B4EZpOrTGIHoAo-/0/1762256580840?e=1791417600&v=beta&t=1rGU2HJfO34CQx1mYFXop-nfSTmvBoIc9GLV5IF_MlM" alt="Hackathon 3" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E22AQGMzhgej0Qzzg/feedshare-shrink_1280/B4EZnEwPjjGoAs-/0/1759942609340?e=1791417600&v=beta&t=UlFakrkEyPY2yt_fTKMDifac9TskiYDQx1Jni6SWBg4" alt="Hackathon 4" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQG2PgGR8vWEjQ/feedshare-shrink_1280/B56ZyEA.IAKgAc-/0/1771741373829?e=1791417600&v=beta&t=zG9Al-c-0KjaqM9IrZECZLkehqc-JzB7l-sylA7FqbU" alt="Hackathon 5" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <!-- Group 2 (Duplicate for smooth scroll) -->
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQHaGfr7zO8zeQ/feedshare-shrink_800/B56Z227KhuKoAc-/0/1776890456418?e=1791417600&v=beta&t=znSKOGP70d8qmTNklQhzShODL0qF2FqBbERG4uN-FKQ" alt="Hackathon 1" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQFsgPJHX6B9bw/feedshare-shrink_1280/B56ZyEA9TnIgAg-/0/1771741370524?e=1791417600&v=beta&t=eiH1ce9ApbPRghIVhefHhbPYlG4ouIWkBow_IT-8WUg" alt="Hackathon 2" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E22AQHfarDOreetDw/feedshare-image-high-res/B4EZpOrTGIHoAo-/0/1762256580840?e=1791417600&v=beta&t=1rGU2HJfO34CQx1mYFXop-nfSTmvBoIc9GLV5IF_MlM" alt="Hackathon 3" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E22AQGMzhgej0Qzzg/feedshare-shrink_1280/B4EZnEwPjjGoAs-/0/1759942609340?e=1791417600&v=beta&t=UlFakrkEyPY2yt_fTKMDifac9TskiYDQx1Jni6SWBg4" alt="Hackathon 4" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQG2PgGR8vWEjQ/feedshare-shrink_1280/B56ZyEA.IAKgAc-/0/1771741373829?e=1791417600&v=beta&t=zG9Al-c-0KjaqM9IrZECZLkehqc-JzB7l-sylA7FqbU" alt="Hackathon 5" class="w-80 h-56 object-cover rounded-xl border border-[var(--border-color)] shadow-lg hover:border-[var(--accent-color)] transition-colors">
                     </div>
                 </div>
             </div>
